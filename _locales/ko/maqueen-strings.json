@@ -22,7 +22,7 @@
   "maqueen.motorStop|block": "|%motors| 모터 멈추기",
   "maqueen.readPatrol|block": "|%patrol|적외선 센서 값",
   "maqueen.sensor|block": "초음파 센서 값 단위:|%unit",
-  "maqueen.writeLED|block": "|%led| |%ledswitch",
+  "maqueen.writeLED|block": "|%led %ledswitch",
   "maqueen.writeNEO|block": "무드 라이트 색:|%ledcolor",
   "maqueenIR.initIR|block": "|%pin|핀의 IR 리시버 시작",
   "maqueenIR.onPressEvent|block": "|%btn| 버튼 눌렸을 때",
