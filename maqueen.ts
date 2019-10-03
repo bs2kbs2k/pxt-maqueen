@@ -204,13 +204,13 @@ namespace maqueen {
     //% weight=20
     //% blockId=read_Patrol block="Read Patrol|%patrol"
     //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2 
-    export function readPatrol(patrol: Patrol): number {
+    export function readPatrol(patrol: Patrol): boolean {
         if (patrol == Patrol.PatrolLeft) {
-            return pins.digitalReadPin(DigitalPin.P13)
+            return pins.digitalReadPin(DigitalPin.P13) == 1
         } else if (patrol == Patrol.PatrolRight) {
-            return pins.digitalReadPin(DigitalPin.P14)
+            return pins.digitalReadPin(DigitalPin.P14) == 1
         } else {
-            return -1
+            return false
         }
     }
 
