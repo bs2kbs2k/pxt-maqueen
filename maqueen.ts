@@ -82,13 +82,14 @@ namespace maqueen {
         if (alreadyInit == 1) {
             return
         }
-        initIR(Pins.P16)
+        initIR(Pins.P16);
+        pins.digitalWritePin(DigitalPin.P15, 0);
         alreadyInit = 1
     }
 
 
 
-    //% weight=100
+    //% weight=20
     //% blockGap=50
     //% blockId=IR_callbackUser block="on IR received"
     //% draggableParameters=reporter
@@ -103,7 +104,7 @@ namespace maqueen {
         });
     }
 
-    //% weight=10
+    //% weight=20
     //% blockId=IR_read block="read IR"
     //% advanced=true
     export function IR_read(): number {
@@ -111,7 +112,7 @@ namespace maqueen {
         return getParam()
     }
 
-    //% weight=10
+    //% weight=21
     //% blockId=IR_read_version block="Get product information"
     //% advanced=true
     export function IR_read_version(): string {
@@ -134,7 +135,7 @@ namespace maqueen {
     }
 
     //% blockId=ultrasonic_sensor block="sensor unit|%unit"
-    //% weight=95
+    //% weight=23
     export function sensor(unit: PingUnit, maxCmDistance = 500): number {
         // send pulse  basic.pause=sleep control.waitMicros=delay
         pins.setPull(DigitalPin.P1, PinPullMode.PullNone);
@@ -159,7 +160,7 @@ namespace maqueen {
         }
     }
 
-    //% weight=90
+    //% weight=32
     //% blockId=motor_MotorRun block="Motor|%index|dir|%Dir|speed|%speed"
     //% speed.min=0 speed.max=255
     //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
@@ -177,7 +178,7 @@ namespace maqueen {
         pins.i2cWriteBuffer(0x10, buf);
     }
 
-    //% weight=20
+    //% weight=31
     //% blockId=motor_motorStop block="Motor stop|%motors"
     //% motors.fieldEditor="gridpicker" motors.fieldOptions.columns=2 
     export function motorStop(motors: aMotors): void {
@@ -193,7 +194,7 @@ namespace maqueen {
         pins.i2cWriteBuffer(0x10, buf);
     }
 
-    //% weight=10
+    //% weight=30
     //% blockId=motor_motorStopAll block="Motor Stop All"
     export function motorStopAll(): void {
         let buf = pins.createBuffer(3);
@@ -205,7 +206,7 @@ namespace maqueen {
         pins.i2cWriteBuffer(0x10, buf);
     }
 
-    //% weight=20
+    //% weight=22
     //% blockId=read_Patrol block="Read Patrol|%patrol"
     //% patrol.fieldEditor="gridpicker" patrol.fieldOptions.columns=2 
     export function readPatrol(patrol: Patrol): boolean {
@@ -218,7 +219,7 @@ namespace maqueen {
         }
     }
 
-    //% weight=20
+    //% weight=21
     //% blockId=writeLED block="led|%led|ledswitch|%ledswitch"
     //% led.fieldEditor="gridpicker" led.fieldOptions.columns=2 
     //% ledswitch.fieldEditor="gridpicker" ledswitch.fieldOptions.columns=2
@@ -232,10 +233,11 @@ namespace maqueen {
         }
     }
 
-    //% weight=90
+    //% weight=30
     //% blockId=servo_ServoRun block="Servo|%index|angle|%angle"
     //% angle.min=0 angle.max=180
     //% index.fieldEditor="gridpicker" index.fieldOptions.columns=2
+    //% advanced=true
     export function ServoRun(index: aServos, angle: number): void {
         let buf = pins.createBuffer(2);
         if (index == 0) {
@@ -246,19 +248,5 @@ namespace maqueen {
         }
         buf[1] = angle;
         pins.i2cWriteBuffer(0x10, buf);
-    }
-
-    //% weight=20
-    //% blockId=writeNEO block="ambient color|%ledcolor"
-    //% ledcolor.shadow="maqueen_colors"
-    export function writeNEO(ledcolor: number): void {
-        neopixel.create(DigitalPin.P15, 4, NeoPixelMode.RGB).showColor(ledcolor)
-    }
-
-    //% weight=2 blockGap=8
-    //% blockId="maqueen_colors" block="%color"
-    //% blockHidden=true
-    export function colors(color: NeoPixelColors): number {
-        return color;
     }
 }
