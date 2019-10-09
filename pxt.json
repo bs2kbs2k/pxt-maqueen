@@ -17,12 +17,13 @@
         "TransmitterIR.cpp",
         "TransmitterIR.h",
         "_locales/ko/maqueen-strings.json",
-        "shims.d.ts"
+        "shims.d.ts",
+        "moodlight.ts"
     ],
     "testFiles": [
         "tests.ts"
     ],
     "public": true,
     "preferredEditor": "tsprj",
-    "installedVersion": "workspace:c2e67091-5d37-483d-a789-77d09283269f"
+    "installedVersion": "workspace:4efc782c-4970-4181-3f59-88d58a9eefb0"
 }

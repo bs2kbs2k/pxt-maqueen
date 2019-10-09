@@ -53,8 +53,6 @@ enum class RemoteButton {
   Nine = 0x1a
 };
 
-//% color=50 weight=80
-//% advanced=true icon="\uf1eb"
 namespace maqueenIR { 
   map<RemoteButton, vA> actions;
   map<RemoteButton, uint32_t> lastact;
@@ -69,8 +67,6 @@ namespace maqueenIR {
   /**
   * button pushed.
   */
-  //% blockId=ir_received_left_event
-  //% block="on |%btn| button pressed"
   void onPressEvent(RemoteButton btn, Action body) {
     //if(actions.find(btn) == actions.end()) actions[btn] = new vector();
     IRcallbackNum=(int)btn;
@@ -182,8 +178,6 @@ namespace maqueenIR {
   /**
   * initialises local variablesssss
   */
-  //% blockId=ir_init
-  //% block="connect ir receiver to %pin"
   void initIR(Pins pin){
     rx = new ReceiverIR((PinName)pin);
     tsb.start(); //interrupt timer for debounce
