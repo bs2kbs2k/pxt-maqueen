@@ -1,4 +1,15 @@
 {
-  "maqueenIR.initIR": "initialises local variablesssss",
-  "maqueenIR.onPressEvent": "button pushed."
+  "MaqueenColors": "Well known colors for a NeoPixel strip",
+  "maqueen.clear": "Turn off all LEDs.",
+  "maqueen.fromHSL": "Converts a hue saturation luminosity value into a RGB color",
+  "maqueen.fromHSL|param|h": "hue [0-360]",
+  "maqueen.fromHSL|param|l": "luminosity [0-99]",
+  "maqueen.fromHSL|param|s": "saturation [0-99]",
+  "maqueen.fromRGB": "Converts red, green, blue channels into a RGB color",
+  "maqueen.fromRGB|param|blue": "value of the blue channel [0-255] eg: 255",
+  "maqueen.fromRGB|param|green": "value of the green channel [0-255] eg: 255",
+  "maqueen.fromRGB|param|red": "value of the red channel [0-255] eg: 255",
+  "maqueen.showColor": "Shows all LEDs to a given color (range 0-255 for r, g, b).",
+  "maqueen.showColor|param|rgb": "RGB color of the LED",
+  "maqueenIR.getParam": "initialises local variablesssss"
 }
