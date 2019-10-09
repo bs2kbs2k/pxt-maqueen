@@ -15,6 +15,7 @@ enum PingUnit {
 
 
 //% weight=10 color=#008B00 icon="\uf136" block="maqueen"
+//% groups=['Motors', 'Sensors', 'Ambient Light']
 namespace maqueen {
 
     export class Packeta {
@@ -90,6 +91,7 @@ namespace maqueen {
     //% weight=100
     //% blockGap=50
     //% blockId=IR_callbackUser block="on IR received"
+    //% draggableParameters=reporter
     export function IR_callbackUser(maqueencb: (message: number) => void) {
         maqueenInit();
         IR_callback(() => {
@@ -103,6 +105,7 @@ namespace maqueen {
 
     //% weight=10
     //% blockId=IR_read block="read IR"
+    //% advanced=true
     export function IR_read(): number {
         maqueenInit()
         return getParam()
@@ -110,6 +113,7 @@ namespace maqueen {
 
     //% weight=10
     //% blockId=IR_read_version block="Get product information"
+    //% advanced=true
     export function IR_read_version(): string {
         maqueenInit()
         pins.i2cWriteNumber(0x10, 50, NumberFormat.UInt8BE);
