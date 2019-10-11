@@ -27,7 +27,7 @@ enum MaqueenColors {
 namespace maqueen {
     let brightness: number = 128;
 
-    //% weight=2 blockGap=8
+    //% weight=2
     //% blockId="maqueen_colors" block="%color"
     //% blockHidden=true
     export function colors(color: MaqueenColors): number {

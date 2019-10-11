@@ -90,7 +90,6 @@ namespace maqueen {
 
 
     //% weight=20
-    //% blockGap=50
     //% blockId=IR_callbackUser block="on IR received"
     //% draggableParameters=reporter
     export function IR_callbackUser(maqueencb: (message: number) => void) {
